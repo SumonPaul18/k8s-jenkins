@@ -33,7 +33,7 @@ kubectl get deploy,pod,svc,pv,pvc -n jenkins
 ~~~
 #### Delete all to Jenkins-Deploy
 ~~~
-kubectl delete ns jenkins-pod 
+kubectl delete ns jenkins
 kubectl delete pvc jenkins-nfs-pvc
 kubectl delete pv jenkins-nfs-pv
 ~~~
