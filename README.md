@@ -32,6 +32,13 @@ cd k8s-jenkins/k8s-jenkins-deploy
 kubectl apply -f .
 kubectl get deploy,pod,svc,pv,pvc -n jenkins
 ~~~
+#### Accessing Jenkins Dashbord from Browser
+http://master-node-ip:32000
+#### Getting Jenkins Login PassWord
+kubectl logs Pod-name
+~~~
+kubectl logs jenkins-deploy-7b59c686b8-5l4sk
+~~~
 #### Delete all to Jenkins-Deploy
 ~~~
 kubectl delete ns jenkins
