@@ -1,6 +1,6 @@
 # Jenkins Deployment on Kubernetes
 
-#### Run Jenkins As a POD (Simple)
+### Run Jenkins As a POD (Simple)
 ~~~
 rm -rf k8s-jenkins
 git clone https://github.com/SumonPaul18/k8s-jenkins.git
@@ -23,7 +23,8 @@ kubectl delete pv jenkins-nfs-pv
 ps -ef | grep port-forward | grep 32000 | awk '{print $2}'
 kill -9 [PID]
 ~~~
-#### Run Jenkins As a Deployment (Advanced)
+#
+### Run Jenkins As a Deployment (Advanced)
 ~~~
 rm -rf k8s-jenkins
 git clone https://github.com/SumonPaul18/k8s-jenkins.git
