@@ -1,24 +1,31 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: jenkins-deploy
+  labels:
+    app: jenkins
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: jenkins
-  volumes:
-    - name: jenkins-pvc
-      persistentVolumeClaim:
-        claimName: jenkins-nfs-pvc
-  containers:
-    - name: jenkins
-      image: jenkins/jenkins:lts-jdk17
-      ports:
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      containers:
+      - name: jenkins
+        image: jenkins/jenkins:lts-jdk17
+        ports:
         - name: httpport
           containerPort: 8080
         - name: jnlpport
           containerPort: 50000
-      volumeMounts:
+        volumeMounts:
         - mountPath: "/var/jenkins_home"
           name: jenkins-pvc
+      volumes:
+      - name: jenkins-pvc
+        persistentVolumeClaim:
+          claimName: jenkins-nfs-pvc
