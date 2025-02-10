@@ -1,5 +1,7 @@
 # Jenkins Deployment on Kubernetes
 
+In my case, I'm using NFS volume mount for persistent data. So when you want try this code in your environment then you need some changes in PV,PVC section in my codes. 
+
 ### Run Jenkins As a POD (Simple)
 ~~~
 rm -rf k8s-jenkins
